@@ -28,6 +28,7 @@ const Header = () => {
               navbarScroll
             >
               <Nav.Link to="services" as={Link}>Services</Nav.Link>
+              <Nav.Link to="checkout" as={Link}>Checkout</Nav.Link>
               <Nav.Link to="about" as={Link}>About</Nav.Link>
               <Nav.Link to="blogs" as={Link}>Blogs</Nav.Link>
             </Nav>

@@ -1,12 +1,15 @@
 .item{
-    height: 360px;
+    height: 500px;
 }
-.single-review{
-    height: 350px;
+.single-item{
+    height: 470px;
     border: 1px solid orangered;
     border-radius: 10px;
 }
-.single-review hr{
+.single-item hr{
     background-color: orangered;
     opacity: 1;
+}
+.btn-checkout{
+    background-color: orangered !important;
 }
