@@ -1,0 +1,12 @@
+.item{
+    height: 360px;
+}
+.single-review{
+    height: 350px;
+    border: 1px solid orangered;
+    border-radius: 10px;
+}
+.single-review hr{
+    background-color: orangered;
+    opacity: 1;
+}

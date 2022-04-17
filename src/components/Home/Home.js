@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 // import banner from '../../images/hand-holding-smartphone-with-tutor-screen.jpg'
 import banner from "../../images/Webinar-bro.svg";
-const goToSignUp = () => {};
 const Home = () => {
   let navigate = useNavigate();
   return (

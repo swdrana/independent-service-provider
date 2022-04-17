@@ -10,8 +10,9 @@ import {
 } from "react-bootstrap";
 import "./Header.css";
 import logo from "./../../images/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
+  let navigete = useNavigate();
   return (
     <header>
       <Navbar bg="light" expand="lg" className="px-3">
@@ -31,7 +32,8 @@ const Header = () => {
               <Nav.Link to="blogs" as={Link}>Blogs</Nav.Link>
             </Nav>
             <Form className="d-flex">
-              <Button variant="outline-success">Log in</Button>
+              <Button variant="outline-danger" onClick={()=>{navigete('signup')}} className="signup-btn border-0 rounded-0 ms-2 px-4">Create Account</Button>
+              <Button variant="outline-success" onClick={()=>{navigete('login')}}className="login-btn border-0 rounded-0 ms-2 px-4">Log in</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
