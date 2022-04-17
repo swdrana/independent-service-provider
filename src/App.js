@@ -1,21 +1,25 @@
 import { Button, Col, Row } from "react-bootstrap";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import About from "./components/About/About";
+import Blogs from "./components/Blogs/Blogs";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import NotFound from "./components/NotFound/NotFound";
+import Services from "./components/Services/Services";
 
 function App() {
   return (
     <div className="App">
-      <h2 className="text-success">Hello</h2>
-      <Row className="mx-0">
-        <Button as={Col} variant="primary">
-          Button #1
-        </Button>
-        <Button as={Col} variant="secondary" className="mx-2">
-          Button #2
-        </Button>
-        <Button as={Col} variant="success">
-          Button #3
-        </Button>
-      </Row>
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/home" element={<Home/>}></Route>
+        <Route path="/services" element={<Services/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
+        <Route path="/blogs" element={<Blogs/>}></Route>
+        <Route path="*" element={<NotFound/>}></Route>
+      </Routes>
     </div>
   );
 }
