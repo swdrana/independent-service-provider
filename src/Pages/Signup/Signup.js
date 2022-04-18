@@ -4,14 +4,14 @@ import "./Signup.css";
 import google from "../../images/g-logo.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import GoogleSignIn from "../GoogleSignIn/GoogleSignIn";
 
 const Signup = () => {
     const navigate = useNavigate();
   const [isChacked, setIsChacked] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  console.log(user);
   const handelForm = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -28,11 +28,11 @@ const Signup = () => {
     navigate('/home');
   }
   return (
-    <div className="d-flex justify-content-center ">
+    <div className="d-flex justify-content-center my-3">
       <div
         className="w-25 d-flex flex-column justify-content-center "
         style={{ height: "80vh" }}
-      >
+      ><h1 className="text-center">Create Account</h1>
         <Form className="my-3 " onSubmit={handelForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control type="email" name="email" placeholder="Enter email" required/>
@@ -64,6 +64,7 @@ const Signup = () => {
               }}
             />
           </Form.Group>
+
           <input
             className="mx-auto w-50 d-block btn btn-primary"
             type="submit"
@@ -72,19 +73,9 @@ const Signup = () => {
           />
         </Form>
 
-        <p>{error}</p>
-        <div className="separator d-flex align-items-center">
-          <div className="w-100 line mx-3"></div>
-          <span className="orange">Or</span>
-          <div className="w-100 line mx-3"></div>
-        </div>
-
-        <div className="pop-up-authorize my-3 d-flex justify-content-center">
-          <Button>
-            <img src={google} height={40} className="rounded-3 me-3" alt="" />
-            <span>Sign up with Google</span>
-          </Button>
-        </div>
+        <div className="d-flex justify-content-center "><Link to="/login" >Already Have an account?</Link></div>
+        <p className="text-danger text-center mt-1">{error?.message}</p>
+        <GoogleSignIn></GoogleSignIn>
       </div>
     </div>
   );
