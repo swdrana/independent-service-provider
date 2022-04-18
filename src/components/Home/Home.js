@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 // import banner from '../../images/hand-holding-smartphone-with-tutor-screen.jpg'
 import banner from "../../images/Webinar-bro.svg";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 const Home = () => {
   let navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
   return (
     <>
       <div className="row banner">
@@ -19,7 +22,11 @@ const Home = () => {
               learn with expert anytime, anywhere.
             </h4>
             <Button
-              className=" btn-danger"
+              className={
+                user
+                  ? " btn-danger d-none "
+                  : " btn-danger"
+              }
               onClick={() => {
                 navigate("/signup");
               }}
@@ -29,7 +36,7 @@ const Home = () => {
           </div>
         </div>
         <div className="col-md-6  banner-pik d-flex justify-content-center align-items-center">
-          <img src={banner} className="image-fluid" alt="" height="500px"/>
+          <img src={banner} className="image-fluid" alt="" height="500px" />
           {/* <img src="https://e-tutor-html.netlify.app/assets/images/hero-thumb.jpg" className="img-fluid" alt="" /> */}
         </div>
       </div>

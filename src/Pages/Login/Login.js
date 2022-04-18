@@ -4,11 +4,12 @@ import "./Login.css";
 import google from "../../images/g-logo.png";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
 
   const navigate = useNavigate();
-  
+  const location = useLocation();
+  let from = location.state?.from?.pathname || '/';
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const handelLoginForm = (e) => {
@@ -20,7 +21,7 @@ const Login = () => {
     console.log(email, password, error);
   };
   if (user) {
-    navigate("/home");
+    navigate(from, {replace: true });
   }
 
   return (

@@ -45,7 +45,7 @@ const Header = () => {
               <Nav.Link to="blogs" as={Link}>Blogs</Nav.Link>
             </Nav>
             <Form className="d-flex">
-              <Button variant="outline-danger" onClick={()=>{navigete('signup')}} className="signup-btn border-0 rounded-0 ms-2 px-4">Create Account</Button>
+            <Button variant="outline-danger" onClick={()=>{navigete('signup')}} className={user ? "signup-btn border-0 rounded-0 ms-2 px-4 d-none ": "signup-btn border-0 rounded-0 ms-2 px-4 "}>Create Account</Button>
               <Button variant="outline-success" onClick={loginSignupBTN}className="login-btn border-0 rounded-0 ms-2 px-4">{user? "Sign Out " : "Log in"}</Button>
             </Form>
           </Navbar.Collapse>
