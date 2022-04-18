@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <div className="position-relative">
       <footer className="bg-dark text-white py-3 pt-4 ">
-        <p>
-          © {date.getFullYear()} - Etutor. Develop by{" "}
+        <p className="text-center">
+          © {date.getFullYear()} - E-tutor. Develop by - {""}
           <a
             href="https://github.com/swdrana"
             className=" text-decoration-none"

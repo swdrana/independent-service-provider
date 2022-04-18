@@ -4,7 +4,6 @@ import Topic from "../Topic/Topic";
 import "./Services.css";
 const Services = () => {
 const [topics, setTopics] = useTopics();
-console.log(topics);
   return (
     <div className="services row container m-auto p-3">
         {topics.map(item=><Topic key={item.id} item={item}></Topic>)}

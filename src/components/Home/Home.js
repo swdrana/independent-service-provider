@@ -6,7 +6,10 @@ import "./Home.css";
 import banner from "../../images/Webinar-bro.svg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import useTopics from "../../hooks/useTopics";
+import Topic from "../Topic/Topic";
 const Home = () => {
+  const [topics, setTopics] = useTopics();
   let navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   return (
@@ -42,6 +45,10 @@ const Home = () => {
       </div>
       <div className="catagory container my-5 py-3">
         <h1 className="text-center ">Browse with top category</h1>
+    <div className="services row container m-auto p-3">
+        {topics.slice(0,3).map(item=><Topic key={item.id} item={item}></Topic>)}
+        {console.log(topics.slice(0,3))}
+    </div>
       </div>
     </>
   );

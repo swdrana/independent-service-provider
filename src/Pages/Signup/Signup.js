@@ -28,10 +28,9 @@ const Signup = () => {
     navigate('/home');
   }
   return (
-    <div className="d-flex justify-content-center my-3">
+    <div className="d-flex justify-content-center my-5">
       <div
         className="w-25 d-flex flex-column justify-content-center "
-        style={{ height: "80vh" }}
       ><h1 className="text-center">Create Account</h1>
         <Form className="my-3 " onSubmit={handelForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -56,6 +55,7 @@ const Signup = () => {
 
           <Form.Group className="mb-3">
             <Form.Check
+            style={{userSelect: 'none'}}
               type="checkbox"
               id="disabledFieldsetCheck"
               label="Accept Terms & Condition"
