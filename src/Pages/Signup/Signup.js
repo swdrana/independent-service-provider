@@ -1,29 +1,46 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Signup.css";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../GoogleSignIn/GoogleSignIn";
 import Loading from "../Loading/Loading";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
+
+  <ToastContainer />
   const navigate = useNavigate();
   const [isChacked, setIsChacked] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  const handelForm = (e) => {
+  const [
+    sendEmailVerification,
+    sendingEmailVerification,
+    errorEmailVerification,
+  ] = useSendEmailVerification(auth);
+  const verifyEmail = async () => {
+    await sendEmailVerification();
+    alert("Sent email! Please Verify");
+  };
+  const handelForm = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     const conformPassword = e.target.conformPassword.value;
     if (password === conformPassword) {
-      createUserWithEmailAndPassword(email, password);
+      await createUserWithEmailAndPassword(email, password);
+      verifyEmail();
     } else {
-      alert("password wrong!");
+      toast("password wrong!");
     }
   };
-  if (loading) {
+  if (loading || sendingEmailVerification) {
     return <Loading />;
   }
   if (user) {
@@ -33,6 +50,11 @@ const Signup = () => {
     <div className="d-flex justify-content-center my-5">
       <div className="w-25 d-flex flex-column justify-content-center ">
         <h1 className="text-center">Create Account</h1>
+        <button
+        onClick={async () => {
+          await sendEmailVerification();
+          alert('Sent email');
+        }}>hmm</button>
         <Form className="my-3 " onSubmit={handelForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
@@ -84,7 +106,9 @@ const Signup = () => {
         <div className="d-flex justify-content-center ">
           <Link to="/login">Already Have an account?</Link>
         </div>
-        <p className="text-danger text-center mt-1">{error?.message}</p>
+        <p className="text-danger text-center mt-1">
+          {error?.message || errorEmailVerification?.message}
+        </p>
         <GoogleSignIn></GoogleSignIn>
       </div>
     </div>
