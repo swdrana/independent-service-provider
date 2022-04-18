@@ -1,11 +1,13 @@
-import React from 'react';
-import './Blogs.css'
+import React from "react";
+import FAQ from "../../Pages/FAQ/FAQ";
+import "./Blogs.css";
 const Blogs = () => {
-    return (
-        <div>
-            <h2>Blogs</h2>
-        </div>
-    );
+  return (
+    <div>
+      <h2 className="text-center">FAQ</h2>
+      <FAQ></FAQ>
+    </div>
+  );
 };
 
 export default Blogs;
