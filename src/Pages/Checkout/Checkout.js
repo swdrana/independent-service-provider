@@ -11,7 +11,7 @@ const Checkout = () => {
   if (selectedItem) {
     return (
       <>
-        <div className="d-flex justify-content-center align-items-center container border rounded-3 my-4 p-2">
+        <div className="d-flex justify-content-center align-items-center container border rounded-3 my-4 p-2 checkout">
           <img src={selectedItem.img} className="w-25 rounded-3" alt="" />
           <div className="w-75 mx-5">
             <h3>Selected Item: {selectedItem.name}</h3>
@@ -21,18 +21,19 @@ const Checkout = () => {
           </div>
         </div>
         <div className="container text-center border rounded-3 my-4 p-2">
-          <h3>Your Address</h3>
+          <h3 className="ms-5 ps-5">Your Address</h3>
 
-          <div >
-            <label htmlFor="name" className="me-3">Name: </label>
-            <input type="text" name="name" id="" />
-            <br /><br />
-            <label htmlFor="mail" className="me-4">Email: </label>
-            <input type="email" name="mail" id="" />
+          <div className="w-50 mx-auto">
+            <label htmlFor="name" className=" w-25">Name: </label>
+            <input className="w-75" type="text" name="name" id="" />
             <br />
             <br />
-            <label className="me-3">Address: </label>
-            <textarea name="" id="" cols="20" rows="6"></textarea>
+            <label htmlFor="mail" className="w-25">Email: </label>
+            <input className="w-75" type="email" name="mail" id="" />
+            <br />
+            <br />
+            <label className="w-25">Address: </label>
+            <textarea className="w-75" name="address" id="" cols="20" rows="6"></textarea>
             <br />
             <Button onClick={order}>Submit</Button>
           </div>
