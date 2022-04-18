@@ -17,8 +17,12 @@ const Signup = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const conformPassword = e.target.conformPassword.value;
-    console.log(email, password, conformPassword);
-    createUserWithEmailAndPassword(email, password);
+    if(password===conformPassword){
+        createUserWithEmailAndPassword(email, password);
+    }else{
+        alert("password wrong!")
+    }
+    
   };
   if(user){
     navigate('/home');
@@ -31,14 +35,14 @@ const Signup = () => {
       >
         <Form className="my-3 " onSubmit={handelForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="email" name="email" placeholder="Enter email" />
+            <Form.Control type="email" name="email" placeholder="Enter email" required/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password"required
             />
           </Form.Group>
 
@@ -46,7 +50,7 @@ const Signup = () => {
             <Form.Control
               type="password"
               name="conformPassword"
-              placeholder="Conform Password"
+              placeholder="Conform Password"required
             />
           </Form.Group>
 
@@ -68,6 +72,7 @@ const Signup = () => {
           />
         </Form>
 
+        <p>{error}</p>
         <div className="separator d-flex align-items-center">
           <div className="w-100 line mx-3"></div>
           <span className="orange">Or</span>

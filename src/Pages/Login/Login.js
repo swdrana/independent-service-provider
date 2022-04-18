@@ -6,20 +6,23 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
+
   const navigate = useNavigate();
+  
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-    const handelForm = (e) => {
-      e.preventDefault();
-      const email = e.target.email.value;
-      const password = e.target.password.value;
-      console.log(email, password);
-      signInWithEmailAndPassword(email, password);
-    };
-    if(user){
-      navigate('/home');
-    }
-    
+  const handelLoginForm = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password, error);
+    signInWithEmailAndPassword(email, password);
+    console.log(email, password, error);
+  };
+  if (user) {
+    navigate("/home");
+  }
+
   return (
     <div>
       <div className="d-flex justify-content-center ">
@@ -27,13 +30,23 @@ const Login = () => {
           className="w-25 d-flex flex-column justify-content-center "
           style={{ height: "80vh" }}
         >
-          <Form className="my-3 " onSubmit={handelForm}>
+          <Form className="my-3 " onSubmit={handelLoginForm}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="email" name="email" placeholder="Enter email" />
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="Enter email"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control type="password" name="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
             </Form.Group>
 
             {/* <Form.Group className="mb-3">
@@ -47,7 +60,7 @@ const Login = () => {
               Sign In
             </Button>
           </Form>
-
+          <p>{error}</p>
           <div className="separator d-flex align-items-center">
             <div className="w-100 line mx-3"></div>
             <span className="orange">Or</span>

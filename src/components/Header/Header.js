@@ -11,8 +11,20 @@ import {
 import "./Header.css";
 import logo from "./../../images/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from 'firebase/auth';
+import auth from "../../firebase.init";
 const Header = () => {
   let navigete = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
+  const loginSignupBTN = ()=>{
+    if(!user){
+      navigete('login');
+    }else{
+      signOut(auth);
+      navigete('/login')
+    }
+  }
   return (
     <header>
       <Navbar bg="light" expand="lg" className="px-3">
@@ -34,7 +46,7 @@ const Header = () => {
             </Nav>
             <Form className="d-flex">
               <Button variant="outline-danger" onClick={()=>{navigete('signup')}} className="signup-btn border-0 rounded-0 ms-2 px-4">Create Account</Button>
-              <Button variant="outline-success" onClick={()=>{navigete('login')}}className="login-btn border-0 rounded-0 ms-2 px-4">Log in</Button>
+              <Button variant="outline-success" onClick={loginSignupBTN}className="login-btn border-0 rounded-0 ms-2 px-4">{user? "Sign Out " : "Log in"}</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
