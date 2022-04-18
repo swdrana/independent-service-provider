@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import "./Login.css";
+import "./Login.css";  
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
-  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../GoogleSignIn/GoogleSignIn";
+import Loading from "../Loading/Loading";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -31,12 +33,16 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
     console.log(email, password, error);
   };
+  if (sending || loading) {
+    return <Loading />;
+  }
   if (user) {
     navigate(from, { replace: true });
   }
 
   return (
     <div>
+       <ToastContainer />
       <div className="d-flex justify-content-center mb-5">
         <div className="w-25 d-flex flex-column ">
           <h1 className="text-center my-2 pt-4">Please Login</h1>
@@ -65,9 +71,9 @@ const Login = () => {
               onClick={async () => {
                 if (email) {
                   await sendPasswordResetEmail(email);
-                  alert("Sent email");
-                }else{
-                  alert('Please input your email');
+                  toast("Reset email send successfully!");
+                } else {
+                  toast("Please input your email");
                 }
               }}
             >

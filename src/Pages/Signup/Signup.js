@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Signup.css";
-import google from "../../images/g-logo.png";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleSignIn from "../GoogleSignIn/GoogleSignIn";
+import Loading from "../Loading/Loading";
 
 const Signup = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isChacked, setIsChacked] = useState(false);
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -17,31 +17,38 @@ const Signup = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const conformPassword = e.target.conformPassword.value;
-    if(password===conformPassword){
-        createUserWithEmailAndPassword(email, password);
-    }else{
-        alert("password wrong!")
+    if (password === conformPassword) {
+      createUserWithEmailAndPassword(email, password);
+    } else {
+      alert("password wrong!");
     }
-    
   };
-  if(user){
-    navigate('/home');
+  if (loading) {
+    return <Loading />;
+  }
+  if (user) {
+    navigate("/home");
   }
   return (
     <div className="d-flex justify-content-center my-5">
-      <div
-        className="w-25 d-flex flex-column justify-content-center "
-      ><h1 className="text-center">Create Account</h1>
+      <div className="w-25 d-flex flex-column justify-content-center ">
+        <h1 className="text-center">Create Account</h1>
         <Form className="my-3 " onSubmit={handelForm}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="email" name="email" placeholder="Enter email" required/>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              required
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
               type="password"
               name="password"
-              placeholder="Password"required
+              placeholder="Password"
+              required
             />
           </Form.Group>
 
@@ -49,13 +56,14 @@ const Signup = () => {
             <Form.Control
               type="password"
               name="conformPassword"
-              placeholder="Conform Password"required
+              placeholder="Conform Password"
+              required
             />
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Check
-            style={{userSelect: 'none'}}
+              style={{ userSelect: "none" }}
               type="checkbox"
               id="disabledFieldsetCheck"
               label="Accept Terms & Condition"
@@ -73,7 +81,9 @@ const Signup = () => {
           />
         </Form>
 
-        <div className="d-flex justify-content-center "><Link to="/login" >Already Have an account?</Link></div>
+        <div className="d-flex justify-content-center ">
+          <Link to="/login">Already Have an account?</Link>
+        </div>
         <p className="text-danger text-center mt-1">{error?.message}</p>
         <GoogleSignIn></GoogleSignIn>
       </div>

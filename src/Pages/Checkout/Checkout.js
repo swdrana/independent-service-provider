@@ -35,7 +35,7 @@ const Checkout = () => {
             <label className="w-25">Address: </label>
             <textarea className="w-75" name="address" id="" cols="20" rows="6"></textarea>
             <br />
-            <Button onClick={order}>Submit</Button>
+           <div className="ms-5 ps-5"> <Button  onClick={order}>Submit</Button></div>
           </div>
         </div>
       </>
