@@ -25,11 +25,7 @@ const Home = () => {
               learn with expert anytime, anywhere.
             </h4>
             <Button
-              className={
-                user
-                  ? " btn-danger d-none "
-                  : " btn-danger"
-              }
+              className={user ? " btn-danger d-none " : " btn-danger"}
               onClick={() => {
                 navigate("/signup");
               }}
@@ -44,11 +40,28 @@ const Home = () => {
         </div>
       </div>
       <div className="catagory container my-5 py-3">
-        <h1 className="text-center ">Browse with top category</h1>
-    <div className="services row container m-auto p-3">
-        {topics.slice(0,3).map(item=><Topic key={item.id} item={item}></Topic>)}
-        {console.log(topics.slice(0,3))}
-    </div>
+        <h1 className="text-center ">Top Courses</h1>
+        <div className="services row container m-auto p-3">
+          {topics.slice(0, 3).map((item) => (
+            <Topic key={item.id} item={item}></Topic>
+          ))}
+        </div>
+      </div>
+      <div className="benefit container my-5 py-3">
+        <h1 className="text-center ">Benefit</h1>
+        <div className="container m-auto p-3 d-flex justify-content-evenly">
+          <ul>
+            <li className="my-4">Easy to learn</li>
+            <li className="my-4">You can use your Phone</li>
+            <li className="my-4">Live Class</li>
+            <li className="my-4">Recorded Video</li>
+          </ul>
+          <ul>
+            <li className="my-4">Provide PDF</li>
+            <li className="my-4">Provide Notes</li>
+            <li className="my-4">Anytime Support</li>
+          </ul>
+        </div>
       </div>
     </>
   );
