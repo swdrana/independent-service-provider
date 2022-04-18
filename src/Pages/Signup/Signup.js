@@ -2,15 +2,26 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Signup.css";
 import google from "../../images/g-logo.png";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { useNavigate } from "react-router-dom";
+
 const Signup = () => {
+    const navigate = useNavigate();
   const [isChacked, setIsChacked] = useState(false);
-//   console.log(isChacked);
-  const handelForm = (e)=>{
-      e.preventDefault();
-      const email =e.target.email.value;
-      const password =e.target.password.value;
-      const conformPassword =e.target.conformPassword.value;
-      console.log(email, password, conformPassword);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+  console.log(user);
+  const handelForm = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const conformPassword = e.target.conformPassword.value;
+    console.log(email, password, conformPassword);
+    createUserWithEmailAndPassword(email, password);
+  };
+  if(user){
+    navigate('/home');
   }
   return (
     <div className="d-flex justify-content-center ">
@@ -24,11 +35,19 @@ const Signup = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control type="password" name="password" placeholder="Password" />
+            <Form.Control
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="conformPassword">
-            <Form.Control type="password" name="conformPassword" placeholder="Conform Password" />
+            <Form.Control
+              type="password"
+              name="conformPassword"
+              placeholder="Conform Password"
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
