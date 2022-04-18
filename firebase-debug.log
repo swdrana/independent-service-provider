@@ -1,0 +1,119 @@
+[debug] [2022-04-18T16:40:47.338Z] ----------------------------------------------------------------------
+[debug] [2022-04-18T16:40:47.339Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2022-04-18T16:40:47.340Z] CLI Version:   10.6.0
+[debug] [2022-04-18T16:40:47.340Z] Platform:      darwin
+[debug] [2022-04-18T16:40:47.340Z] Node Version:  v16.13.1
+[debug] [2022-04-18T16:40:47.340Z] Time:          Mon Apr 18 2022 22:40:47 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-04-18T16:40:47.341Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-18T16:40:47.407Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-18T16:40:47.407Z] > authorizing via signed-in user (algorana01@gmail.com)
+[debug] [2022-04-18T16:40:47.407Z] [iam] checking project e-tutor-c21cb for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-04-18T16:40:47.408Z] > refreshing access token with scopes: []
+[debug] [2022-04-18T16:40:47.408Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-04-18T16:40:47.936Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Mon, 18 Apr 2022 16:40:47 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-04-18T16:40:47.980Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-tutor-c21cb:testIamPermissions [none]
+[debug] [2022-04-18T16:40:47.981Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-tutor-c21cb:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-04-18T16:40:52.065Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-tutor-c21cb:testIamPermissions 200
+[debug] [2022-04-18T16:40:52.065Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/e-tutor-c21cb:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-04-18T16:40:52.066Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/e-tutor-c21cb [none]
+[debug] [2022-04-18T16:40:53.967Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/e-tutor-c21cb 200
+[debug] [2022-04-18T16:40:53.967Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/e-tutor-c21cb {"projectId":"e-tutor-c21cb","projectNumber":"47323945436","displayName":"e-tutor","name":"projects/e-tutor-c21cb","resources":{"hostingSite":"e-tutor-c21cb"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'e-tutor-c21cb'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-04-18T16:40:53.970Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/e-tutor-c21cb [none]
+[debug] [2022-04-18T16:40:54.731Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/e-tutor-c21cb 200
+[debug] [2022-04-18T16:40:54.731Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/e-tutor-c21cb {"projectId":"e-tutor-c21cb","projectNumber":"47323945436","displayName":"e-tutor","name":"projects/e-tutor-c21cb","resources":{"hostingSite":"e-tutor-c21cb"},"state":"ACTIVE"}
+[debug] [2022-04-18T16:40:54.734Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions [none]
+[debug] [2022-04-18T16:40:54.735Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-04-18T16:40:58.035Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions 200
+[debug] [2022-04-18T16:40:58.035Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions {"name":"projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[e-tutor-c21cb]: beginning deploy... 
+[info] i  hosting[e-tutor-c21cb]: found 18 files in build 
+[debug] [2022-04-18T16:40:58.048Z] [hosting] uploading with 200 concurrency
+[debug] [2022-04-18T16:40:58.269Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2022-04-18T16:40:58.269Z] [hosting][hash queue][FINAL] {"max":214,"min":11,"avg":26.944444444444443,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":219}
+[debug] [2022-04-18T16:40:58.269Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b:populateFiles [none]
+[debug] [2022-04-18T16:40:58.269Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b:populateFiles {"files":{"/index.html":"365577b10a248fc0d89081a2cdea813889cc324a9f35175fd48b11ccbacfd553","/asset-manifest.json":"697a889dda0294f999a69813c95f50c22640e577ae7014fb81bb8cb11d6bd09d","/robots.txt":"391d14b3c2f8c9143a27a28c7399585142228d4d1bdbe2c87ac946de411fa9a2","/logo512.png":"191fc21360b4ccfb1cda11a1efb97f489ed22672ca83f4064316802bbfdd750e","/logo192.png":"caff018b7f1e8fd481eb1c50d75b0ef236bcd5078b1d15c8bb348453fee30293","/manifest.json":"341d52628782f8ac9290bbfc43298afccb47b7cbfcee146ae30cf0f46bc30900","/static/js/787.dbf33554.chunk.js":"65e82eea0dcb78bb1f473b65dd0f941fbcfcd4bfb7278f5a4c6436725afe6de5","/services.json":"9e52791bd226425f95e19ef6a3d287557cfd092df150a1fa725439a6efc4351c","/static/js/787.dbf33554.chunk.js.map":"ed9ce1a89d767a6b1fc5d1b75c5d26854c80523ad866a13d74d1dfde5d638a67","/static/js/main.d692a37c.js.LICENSE.txt":"75a042ff799481016d8fa426e3ffd1f491a7dcca832cd7d2c4d407e6acf3f94b","/favicon.ico":"84d1dee3f37e5f626a52bc8fb0479388924e011a5a5af29f81dfd012511e238c","/static/media/logo.b5229eb80e4fc75759200bafb8139bb8.svg":"26761ccb1434bb5002173b68e2fb4228098d48b77e658c879870a6cb548da0a8","/static/media/Webinar-bro.7f9f0566cdbb17c2c4cc74f5c8d9131f.svg":"59e8e235d8250b73c52c02c1a343123e153cb938655ffd3688215e0f4ae6ff46","/static/media/404-error-with-a-tired-person-pana.0196bdc64cd109941cd4e58cec855144.svg":"18378801cc379bddb0d59e5011640c6c5958b9c348fe78c3abd43f64f6d45397","/static/css/main.30aed1a9.css":"d08733beb266a17b012f6287893edc7a85e3b9ff66f7872bc03cc6900cdd55de","/static/js/main.d692a37c.js":"584ce907e9ba2b5b3d3b68f8ca3ad29c7f4c854c9e62b1a47242dcf586f724ae","/static/css/main.30aed1a9.css.map":"637f974dbaebfd296ccafb7dec4e69eef7fabbb370e59e81868f17268e85ee85","/static/js/main.d692a37c.js.map":"085a66adcee61483f10f71425e01887afab82e8f6f43b91b174b0166af1630d6"}}
+[debug] [2022-04-18T16:41:00.809Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b:populateFiles 200
+[debug] [2022-04-18T16:41:00.810Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b:populateFiles {"uploadRequiredHashes":["085a66adcee61483f10f71425e01887afab82e8f6f43b91b174b0166af1630d6","365577b10a248fc0d89081a2cdea813889cc324a9f35175fd48b11ccbacfd553","9e52791bd226425f95e19ef6a3d287557cfd092df150a1fa725439a6efc4351c","697a889dda0294f999a69813c95f50c22640e577ae7014fb81bb8cb11d6bd09d","d08733beb266a17b012f6287893edc7a85e3b9ff66f7872bc03cc6900cdd55de","584ce907e9ba2b5b3d3b68f8ca3ad29c7f4c854c9e62b1a47242dcf586f724ae","637f974dbaebfd296ccafb7dec4e69eef7fabbb370e59e81868f17268e85ee85","84d1dee3f37e5f626a52bc8fb0479388924e011a5a5af29f81dfd012511e238c"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files"}
+[debug] [2022-04-18T16:41:00.814Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/085a66adcee61483f10f71425e01887afab82e8f6f43b91b174b0166af1630d6 [none]
+[debug] [2022-04-18T16:41:00.814Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/085a66adcee61483f10f71425e01887afab82e8f6f43b91b174b0166af1630d6 [stream]
+[debug] [2022-04-18T16:41:00.816Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/365577b10a248fc0d89081a2cdea813889cc324a9f35175fd48b11ccbacfd553 [none]
+[debug] [2022-04-18T16:41:00.816Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/365577b10a248fc0d89081a2cdea813889cc324a9f35175fd48b11ccbacfd553 [stream]
+[debug] [2022-04-18T16:41:00.818Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/9e52791bd226425f95e19ef6a3d287557cfd092df150a1fa725439a6efc4351c [none]
+[debug] [2022-04-18T16:41:00.818Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/9e52791bd226425f95e19ef6a3d287557cfd092df150a1fa725439a6efc4351c [stream]
+[debug] [2022-04-18T16:41:00.819Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/697a889dda0294f999a69813c95f50c22640e577ae7014fb81bb8cb11d6bd09d [none]
+[debug] [2022-04-18T16:41:00.819Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/697a889dda0294f999a69813c95f50c22640e577ae7014fb81bb8cb11d6bd09d [stream]
+[debug] [2022-04-18T16:41:00.820Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/d08733beb266a17b012f6287893edc7a85e3b9ff66f7872bc03cc6900cdd55de [none]
+[debug] [2022-04-18T16:41:00.820Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/d08733beb266a17b012f6287893edc7a85e3b9ff66f7872bc03cc6900cdd55de [stream]
+[debug] [2022-04-18T16:41:00.822Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/584ce907e9ba2b5b3d3b68f8ca3ad29c7f4c854c9e62b1a47242dcf586f724ae [none]
+[debug] [2022-04-18T16:41:00.822Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/584ce907e9ba2b5b3d3b68f8ca3ad29c7f4c854c9e62b1a47242dcf586f724ae [stream]
+[debug] [2022-04-18T16:41:00.823Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/637f974dbaebfd296ccafb7dec4e69eef7fabbb370e59e81868f17268e85ee85 [none]
+[debug] [2022-04-18T16:41:00.823Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/637f974dbaebfd296ccafb7dec4e69eef7fabbb370e59e81868f17268e85ee85 [stream]
+[debug] [2022-04-18T16:41:00.824Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/84d1dee3f37e5f626a52bc8fb0479388924e011a5a5af29f81dfd012511e238c [none]
+[debug] [2022-04-18T16:41:00.824Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/84d1dee3f37e5f626a52bc8fb0479388924e011a5a5af29f81dfd012511e238c [stream]
+[debug] [2022-04-18T16:41:00.825Z] [hosting][populate queue][FINAL] {"max":2545,"min":2545,"avg":2545,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":2557}
+[debug] [2022-04-18T16:41:00.826Z] [hosting] uploads queued: 8
+[debug] [2022-04-18T16:41:03.275Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/697a889dda0294f999a69813c95f50c22640e577ae7014fb81bb8cb11d6bd09d 200
+[debug] [2022-04-18T16:41:03.275Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/697a889dda0294f999a69813c95f50c22640e577ae7014fb81bb8cb11d6bd09d [stream]
+[debug] [2022-04-18T16:41:03.473Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/9e52791bd226425f95e19ef6a3d287557cfd092df150a1fa725439a6efc4351c 200
+[debug] [2022-04-18T16:41:03.474Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/9e52791bd226425f95e19ef6a3d287557cfd092df150a1fa725439a6efc4351c [stream]
+[debug] [2022-04-18T16:41:03.740Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/d08733beb266a17b012f6287893edc7a85e3b9ff66f7872bc03cc6900cdd55de 200
+[debug] [2022-04-18T16:41:03.741Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/d08733beb266a17b012f6287893edc7a85e3b9ff66f7872bc03cc6900cdd55de [stream]
+[debug] [2022-04-18T16:41:04.009Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/584ce907e9ba2b5b3d3b68f8ca3ad29c7f4c854c9e62b1a47242dcf586f724ae 200
+[debug] [2022-04-18T16:41:04.009Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/584ce907e9ba2b5b3d3b68f8ca3ad29c7f4c854c9e62b1a47242dcf586f724ae [stream]
+[debug] [2022-04-18T16:41:04.076Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/84d1dee3f37e5f626a52bc8fb0479388924e011a5a5af29f81dfd012511e238c 200
+[debug] [2022-04-18T16:41:04.076Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/84d1dee3f37e5f626a52bc8fb0479388924e011a5a5af29f81dfd012511e238c [stream]
+[debug] [2022-04-18T16:41:04.149Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/637f974dbaebfd296ccafb7dec4e69eef7fabbb370e59e81868f17268e85ee85 200
+[debug] [2022-04-18T16:41:04.149Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/637f974dbaebfd296ccafb7dec4e69eef7fabbb370e59e81868f17268e85ee85 [stream]
+[debug] [2022-04-18T16:41:05.292Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/085a66adcee61483f10f71425e01887afab82e8f6f43b91b174b0166af1630d6 200
+[debug] [2022-04-18T16:41:05.293Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/085a66adcee61483f10f71425e01887afab82e8f6f43b91b174b0166af1630d6 [stream]
+[debug] [2022-04-18T16:41:05.304Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/365577b10a248fc0d89081a2cdea813889cc324a9f35175fd48b11ccbacfd553 200
+[debug] [2022-04-18T16:41:05.304Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b/files/365577b10a248fc0d89081a2cdea813889cc324a9f35175fd48b11ccbacfd553 [stream]
+[debug] [2022-04-18T16:41:05.304Z] [hosting][upload queue][FINAL] {"max":4493,"min":2464,"avg":3353.25,"active":0,"complete":8,"success":8,"errored":0,"retried":0,"total":8,"elapsed":4494}
+[info] ✔  hosting[e-tutor-c21cb]: file upload complete 
+[debug] [2022-04-18T16:41:05.305Z] [hosting] deploy completed after 7269ms
+[debug] [2022-04-18T16:41:05.309Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "e-tutor-c21cb"
+    },
+    "site": "e-tutor-c21cb",
+    "version": "projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b"
+  }
+]
+[info] i  hosting[e-tutor-c21cb]: finalizing version... 
+[debug] [2022-04-18T16:41:05.310Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b updateMask=status
+[debug] [2022-04-18T16:41:05.310Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b {"status":"FINALIZED"}
+[debug] [2022-04-18T16:41:07.362Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b 200
+[debug] [2022-04-18T16:41:07.363Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b {"name":"projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-04-18T16:40:57.754125Z","createUser":{"email":"algorana01@gmail.com"},"finalizeTime":"2022-04-18T16:41:07.168750Z","finalizeUser":{"email":"algorana01@gmail.com"}}
+[debug] [2022-04-18T16:41:07.363Z] [hosting] finalized version for e-tutor-c21cb:[object Object]
+[info] ✔  hosting[e-tutor-c21cb]: version finalized 
+[info] i  hosting[e-tutor-c21cb]: releasing new version... 
+[debug] [2022-04-18T16:41:07.364Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/releases versionName=projects%2F47323945436%2Fsites%2Fe-tutor-c21cb%2Fversions%2F2900dc8de97b6c3b
+[debug] [2022-04-18T16:41:07.364Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/releases {"message":null}
+[debug] [2022-04-18T16:41:09.366Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/releases 200
+[debug] [2022-04-18T16:41:09.366Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/47323945436/sites/e-tutor-c21cb/releases {"name":"projects/47323945436/sites/e-tutor-c21cb/releases/1650300068684721","version":{"name":"projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-04-18T16:40:57.754125Z","createUser":{"email":"algorana01@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AATXAJztR7VGY1LuRetw6hsv9edKXiVaCcyxsbwYEORy=mo"},"finalizeTime":"2022-04-18T16:41:07.168750Z","finalizeUser":{"email":"algorana01@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AATXAJztR7VGY1LuRetw6hsv9edKXiVaCcyxsbwYEORy=mo"}},"type":"DEPLOY","releaseTime":"2022-04-18T16:41:08.684721596Z","releaseUser":{"email":"algorana01@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AATXAJztR7VGY1LuRetw6hsv9edKXiVaCcyxsbwYEORy=mo"}}
+[debug] [2022-04-18T16:41:09.366Z] [hosting] release: {"name":"projects/47323945436/sites/e-tutor-c21cb/releases/1650300068684721","version":{"name":"projects/47323945436/sites/e-tutor-c21cb/versions/2900dc8de97b6c3b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-04-18T16:40:57.754125Z","createUser":{"email":"algorana01@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AATXAJztR7VGY1LuRetw6hsv9edKXiVaCcyxsbwYEORy=mo"},"finalizeTime":"2022-04-18T16:41:07.168750Z","finalizeUser":{"email":"algorana01@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AATXAJztR7VGY1LuRetw6hsv9edKXiVaCcyxsbwYEORy=mo"}},"type":"DEPLOY","releaseTime":"2022-04-18T16:41:08.684721596Z","releaseUser":{"email":"algorana01@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AATXAJztR7VGY1LuRetw6hsv9edKXiVaCcyxsbwYEORy=mo"}}
+[info] ✔  hosting[e-tutor-c21cb]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/e-tutor-c21cb/overview
+[info] Hosting URL: https://e-tutor-c21cb.web.app
